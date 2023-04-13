@@ -58,13 +58,11 @@ public class PaintPanel extends JPanel implements MouseListener, MouseMotionList
     {
     	this.path = path;
     	try {
-    		System.out.println(shapes);
 			FileInputStream fileIn = new FileInputStream(path);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			shapes = (ArrayList<Shape>) in.readObject();
 			in.close();
 			fileIn.close();
-			System.out.println(shapes);
 			this.repaint();
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
